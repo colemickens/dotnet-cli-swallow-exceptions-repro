@@ -1,0 +1,28 @@
+root@a4116802c9b8:/opt/repro# dotnet restore; dotnet run
+  Restoring packages for /opt/repro/repro.csproj...
+/usr/share/dotnet/sdk/1.0.0-preview3-004056/NuGet.targets(70,5): warning : Dependency specified was Microsoft.NET.Sdk.Web (>= 1.0.0-alpha-20161104-2) but ended up with Microsoft.NET.Sdk.Web 1.0.0-alpha-20161104-2-112. [/opt/repro/repro.csproj]
+  Lock file has not changed. Skipping lock file write. Path: /opt/repro/obj/project.assets.json
+  Generating MSBuild file /opt/repro/obj/repro.csproj.nuget.g.targets.
+  Generating MSBuild file /opt/repro/obj/repro.csproj.nuget.g.props.
+  Restore completed in 1347.9286ms for /opt/repro/repro.csproj.
+
+  NuGet Config files used:
+      /root/.nuget/NuGet/NuGet.Config
+
+  Feeds used:
+      https://api.nuget.org/v3/index.json
+
+Unhandled Exception: System.Exception: Could not resolve a service of type 'HelloMvcApi.IFoo' for the parameter 'foo' of method 'Configure' on type 'HelloMvcApi.Startup'. ---> System.NotImplementedException: The method or operation is not implemented.
+   at HelloMvcApi.Startup.makeFoo() in /opt/repro/Startup.cs:line 22
+   at HelloMvcApi.Startup.<ConfigureServices>b__0_0(IServiceProvider _) in /opt/repro/Startup.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScoped(ScopedCallSite scopedCallSite, ServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.<>c__DisplayClass16_0.<RealizeService>b__0(ServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.AspNetCore.Hosting.Internal.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Hosting.Internal.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+   at Microsoft.AspNetCore.Hosting.WebHostBuilder.Build()
+   at HelloMvcApi.Program.Main(String[] args) in /opt/repro/Program.cs:line 12
+
