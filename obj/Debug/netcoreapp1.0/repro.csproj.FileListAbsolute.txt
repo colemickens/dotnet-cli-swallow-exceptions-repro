@@ -1,0 +1,5 @@
+/opt/repro/obj/Debug/netcoreapp1.0/repro.AssemblyInfo.cs
+/opt/repro/bin/Debug/netcoreapp1.0/repro.dll
+/opt/repro/bin/Debug/netcoreapp1.0/repro.pdb
+/opt/repro/obj/Debug/netcoreapp1.0/repro.dll
+/opt/repro/obj/Debug/netcoreapp1.0/repro.pdb
